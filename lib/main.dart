@@ -1,4 +1,4 @@
-import 'package:facebook_ui/screens/homepage.dart';
+import 'package:facebook_ui/screens/homepage/homepage.dart';
 import 'package:facebook_ui/screens/story_view_screen.dart';
 import 'package:flutter/material.dart';
 
