@@ -1,4 +1,5 @@
 import 'package:facebook_ui/data/demo_data.dart';
+import 'package:facebook_ui/screens/story_view_screen.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -192,36 +193,48 @@ class _HomepageState extends State<Homepage> {
                       return Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: index != 0
-                            ? Container(
-                                padding: EdgeInsets.only(left: 8, top: 5),
-                                width: 150,
-                                height: 250,
-
-                                decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  borderRadius: BorderRadius.circular(15),
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      DemoData.stories[index].story,
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 27,
-                                      backgroundColor: Colors.blue,
-                                      child: CircleAvatar(
-                                        radius: 24,
-                                        backgroundImage: NetworkImage(
-                                          DemoData
-                                              .stories[index]
-                                              .profilePicture,
-                                        ),
+                            ? InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => StoryViewScreen(
+                                        story: DemoData.stories[index],
                                       ),
                                     ),
-                                  ],
+                                  );
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.only(left: 8, top: 5),
+                                  width: 150,
+                                  height: 250,
+
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(15),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        DemoData.stories[index].story,
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 27,
+                                        backgroundColor: Colors.blue,
+                                        child: CircleAvatar(
+                                          radius: 24,
+                                          backgroundImage: NetworkImage(
+                                            DemoData
+                                                .stories[index]
+                                                .profilePicture,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               )
                             : Container(
